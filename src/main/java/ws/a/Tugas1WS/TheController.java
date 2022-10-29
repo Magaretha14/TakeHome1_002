@@ -6,7 +6,9 @@
 package ws.a.Tugas1WS;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -17,7 +19,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TheController {
     
     @RequestMapping("/hiling")
-    public String tampil(){
+    public String tampil(
+            @RequestParam(value = "nama") String isinama,
+            @RequestParam(value = "lokasi") String isilokasi,
+            Model kurir
+    ){
+        kurir.addAttribute("paketnama", isinama);
+        kurir.addAttribute("paketlokasi", isilokasi);
         return "view";
     }
     
