@@ -22,10 +22,13 @@ public class TheController {
     public String tampil(
             @RequestParam(value = "nama") String isinama,
             @RequestParam(value = "lokasi") String isilokasi,
+            @RequestParam(value = "gambar") String isigambar,
             Model kurir
     ){
         kurir.addAttribute("paketnama", isinama);
         kurir.addAttribute("paketlokasi", isilokasi);
+        kurir.addAttribute("paketimg", isigambar);
+        
         return "view";
     }
     
