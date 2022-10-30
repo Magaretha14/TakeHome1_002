@@ -15,7 +15,7 @@ and open the template in the editor.
             <h1>Hiling</h1>
         </center>
         <hr/>
-        <form action="/hiling" method="POST">
+        <form action="/hiling" method="POST" enctype="multipart/form-data">
             <fieldset>
                 <legend>Form Lokasi</legend>
                 <p>
@@ -30,7 +30,7 @@ and open the template in the editor.
                 <br/>
                 <p>
                     <label>Gambar : </label>
-                    <input type="file" name="gambar" accept="image/*"/>
+                    <input type="file" name="gambar" accept="image/*" class="form-control-file"/>
                 </p>
                 
                 <p>
