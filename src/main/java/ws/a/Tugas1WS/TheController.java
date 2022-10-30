@@ -13,6 +13,7 @@ import java.sql.Blob;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,9 +25,9 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class TheController {
     
-    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir");
+    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/src/main/resources/static";
     
-    @RequestMapping("/hiling")
+    @RequestMapping(value = "/hiling", method = RequestMethod.POST)
     public String tampil(
             @RequestParam(value = "nama") String isinama,
             @RequestParam(value = "lokasi") String isilokasi,
@@ -37,7 +38,8 @@ public class TheController {
         Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, file.getOriginalFilename());
         fileNames.append(file.getOriginalFilename());
         Files.write(fileNameAndPath, file.getBytes());
-        kurir.addAttribute("msg", file);
+        
+        kurir.addAttribute("msg", file.getOriginalFilename());
         
         kurir.addAttribute("paketnama", isinama);
         kurir.addAttribute("paketlokasi", isilokasi);

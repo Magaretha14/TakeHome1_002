@@ -16,7 +16,7 @@ and open the template in the editor.
         </center>
         <hr/>
         <fieldset>
-            <legend>Form Lokasi</legend>
+            <legend>Lokasi Wisata</legend>
             <p>
                 Nama : <l th:text="${paketnama}"></l>
             </p>
@@ -26,9 +26,14 @@ and open the template in the editor.
             </p>
             
             <p>
-                Gambar : 
+                Gambar :
+                <br/>
+                <img th:src="${msg}"/>
             </p>
-            <img th:src="${msg}"/>
+             <p>
+                Lokasi : <l th:text="${msg}"></l>
+            </p>
+            
         </fieldset>
     </body>
 </html>
