@@ -5,10 +5,12 @@
  */
 package ws.a.Tugas1WS;
 
+import java.sql.Blob;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -22,7 +24,7 @@ public class TheController {
     public String tampil(
             @RequestParam(value = "nama") String isinama,
             @RequestParam(value = "lokasi") String isilokasi,
-            @RequestParam(value = "gambar") String isigambar,
+            @RequestParam(value = "gambar") MultipartFile isigambar,
             Model kurir
     ){
         kurir.addAttribute("paketnama", isinama);
