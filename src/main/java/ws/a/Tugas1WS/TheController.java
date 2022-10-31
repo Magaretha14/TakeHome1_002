@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +25,6 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class TheController {
     
-    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/src/main/resources/static";
-    
     @RequestMapping(value = "/hiling", method = RequestMethod.POST)
     public String tampil(
             @RequestParam(value = "nama") String isinama,
@@ -33,15 +32,13 @@ public class TheController {
             @RequestParam(value = "gambar") MultipartFile file,
             Model kurir
     ) throws IOException{
-        StringBuilder fileNames = new StringBuilder();
-        Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, file.getOriginalFilename());
-        fileNames.append(file.getOriginalFilename());
-        Files.write(fileNameAndPath, file.getBytes());
-        
-        kurir.addAttribute("msg", file.getOriginalFilename());
+        byte[] gmbr = file.getBytes();
+        String base64gmbr = Base64.encodeBase64String(gmbr);
+        String gmbrlink = "data:image/*;base64,".concat(base64gmbr);
         
         kurir.addAttribute("paketnama", isinama);
         kurir.addAttribute("paketlokasi", isilokasi);
+        kurir.addAttribute("msg", gmbrlink);
         
         return "view";
     }
