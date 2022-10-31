@@ -9,27 +9,86 @@ and open the template in the editor.
         <title>View Hiling</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                background-color: #ECB390;
+            }
+            #pfieldset{
+                background-color: #FFDEB4;
+            }
+            #pnama{
+                    font-family: 'helvetica neue', helvetica, sans-serif;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    text-align: left;
+                    border: 2px solid rgba(0,0,200,0.6);
+                    background: #EA99D5;
+                    color: black;
+                    box-shadow: 1px 1px 2px rgba(0,0,200,0.4);
+                    border-radius: 10px;
+                    padding: 3px 10px;
+                    display: inline-block;
+                    cursor: pointer;
+                    font-size: 10pt;
+            }
+            
+            #plok{
+                    font-family: 'helvetica neue', helvetica, sans-serif;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    text-align: left;
+                    border: 2px solid rgba(0,0,200,0.6);
+                    background: #99FEFF;
+                    color: black;
+                    box-shadow: 1px 1px 2px rgba(0,0,200,0.4);
+                    border-radius: 10px;
+                    padding: 3px 10px;
+                    display: inline-block;
+                    cursor: pointer;
+                    font-size: 10pt;
+            }
+            
+            #pgmbr{
+                    font-family: 'helvetica neue', helvetica, sans-serif;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    text-align: left;
+                    border: 2px solid rgba(0,0,200,0.6);
+                    background: #FFAFAF;
+                    color: black;
+                    box-shadow: 1px 1px 2px rgba(0,0,200,0.4);
+                    border-radius: 10px;
+                    padding: 3px 10px;
+                    display: inline-block;
+                    cursor: pointer;
+                    font-size: 10pt;
+            }
+        </style>
     </head>
     <body>
         <center>
-            <h1>VIEW</h1>
+            <h1 th:text="${paketnama}"></h1>
         </center>
         <hr/>
-        <fieldset>
+        <fieldset id="pfieldset">
             <legend>Lokasi Wisata</legend>
-            <p>
+            <p id="pnama">
                 Nama : <l th:text="${paketnama}"></l>
             </p>
+            <br/>
             
-            <p>
+            <p id="plok">
                 Lokasi : <l th:text="${paketlokasi}"></l>
             </p>
+            <br/>
             
-            <p>
+            <p id="pgmbr">
                 Gambar :
                 <br/>
-                <img th:src="${msg}"/>
             </p>
+            <center>
+                <img th:src="${msg}"/>
+            </center>
             
         </fieldset>
     </body>
