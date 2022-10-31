@@ -15,6 +15,7 @@ and open the template in the editor.
             }
             #pfieldset{
                 background-color: #FFDEB4;
+                display: inline-block;
             }
             #pnama{
                     font-family: 'helvetica neue', helvetica, sans-serif;
@@ -27,9 +28,10 @@ and open the template in the editor.
                     box-shadow: 1px 1px 2px rgba(0,0,200,0.4);
                     border-radius: 10px;
                     padding: 3px 10px;
-                    display: inline-block;
                     cursor: pointer;
                     font-size: 10pt;
+                    display: inline-block;
+                    float: left;
             }
             
             #plok{
@@ -43,9 +45,11 @@ and open the template in the editor.
                     box-shadow: 1px 1px 2px rgba(0,0,200,0.4);
                     border-radius: 10px;
                     padding: 3px 10px;
-                    display: inline-block;
                     cursor: pointer;
                     font-size: 10pt;
+                    display: inline-block;
+                    float: left;
+                   
             }
             
             #pgmbr{
@@ -59,9 +63,9 @@ and open the template in the editor.
                     box-shadow: 1px 1px 2px rgba(0,0,200,0.4);
                     border-radius: 10px;
                     padding: 3px 10px;
-                    display: inline-block;
                     cursor: pointer;
                     font-size: 10pt;
+                    display: inline-block;
             }
             
             #pbtn{
@@ -75,6 +79,7 @@ and open the template in the editor.
             <h1>Hiling</h1>
         </center>
         <hr/>
+        <center>
         <form action="/hiling" method="POST" enctype="multipart/form-data">
             <fieldset id="pfieldset">
                 <legend>Lokasi Wisata</legend>
@@ -92,13 +97,14 @@ and open the template in the editor.
                     <label>Gambar : </label>
                     <input type="file" name="gambar" accept="image/*" class="form-control-file"/>
                 </p>
-                
+                <br/>
                 <p>
                     <input type="submit" value="SAVE" id="pbtn"/>
                 </p>
             </fieldset>
             
         </form>
+        </center>
         
         
     </body>
